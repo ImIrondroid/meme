@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#FAE20B</color>
+    <color name="colorPrimaryDark">#FAE20B</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#e5e5ea</color>
+    <color name="boldgray">#D1D1D3</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="kakao_yellow">#FAE20B</color>
+
+</resources>

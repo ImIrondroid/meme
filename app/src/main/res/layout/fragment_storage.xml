@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.kakao.iron.ui.storage.ManageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/_textInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/text_menu">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:text="@string/text_screen_default"
+                textState="@{viewModel.stateWatcher}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_collection_title"
+            android:theme="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/_line2"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/text_collection"
+            actionState="@{viewModel.stateWatcher}"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/_textInput"
+            android:layout_marginTop="8dp"
+            app:tabSelectedTextColor="@color/black"
+            app:tabMode="scrollable"
+            app:menu="@menu/bottom_menu"
+            groupState="@{viewModel.stateWatcher}">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sort_descending"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sort_ascending"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sort_query"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_sort_label"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:id="@+id/_line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/_textInput"
+            android:layout_marginTop="8dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:theme="@style/NotoBoldText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/_nested"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal"
+            android:text="@string/text_nomeme"
+            android:visibility="@{viewModel.storageList.size() > 0 ? View.INVISIBLE : View.VISIBLE}"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/_nested"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_storage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/item_storage"
+                    app:spanCount="4"
+                    submitList="@{viewModel.storageList}"
+                    itemSpacing="@{8}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            android:theme="@style/fabTheme"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/_textInput"
+            app:layout_constraintTop_toTopOf="@id/_textInput"
+            app:layout_constraintBottom_toBottomOf="@id/_textInput"
+            android:paddingEnd="48dp"
+            android:gravity="center_horizontal"
+            app:backgroundTint="@color/black"
+            android:text="@string/text_add_favorites"
+            android:textColor="@color/white"
+            android:alpha="0.8"
+            app:icon="@drawable/vector_add"
+            app:iconTint="@color/white"
+            android:visibility="invisible"
+            buttonState="@{viewModel.stateWatcher}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

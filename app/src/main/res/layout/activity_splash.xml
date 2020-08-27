@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:id="@+id/constraint"
+        android:gravity="center">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/_top_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_percent="0.4"
+            android:orientation="horizontal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_top_title1"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/_top_guide"
+            app:layout_constraintStart_toStartOf="@id/_bottom_title1"
+            android:layout_marginBottom="8dp"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="M" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_top_title2"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/_top_guide"
+            app:layout_constraintStart_toEndOf="@id/_top_title1"
+            android:layout_marginStart="8dp"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="E" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_top_title3"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/_top_guide"
+            app:layout_constraintStart_toEndOf="@id/_top_title2"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="M" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_top_title4"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/_top_guide"
+            app:layout_constraintStart_toEndOf="@id/_top_title3"
+            android:layout_marginStart="8dp"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="E" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_bottom_title1"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/_top_guide"
+            app:layout_constraintEnd_toStartOf="@id/_bottom_title2"
+            android:alpha="1"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="W" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_bottom_title2"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/_top_guide"
+            app:layout_constraintEnd_toStartOf="@id/_bottom_title3"
+            android:layout_marginTop="8dp"
+            android:alpha="1"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="O" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_bottom_title3"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/_top_guide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp"
+            android:alpha="1"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="R" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_bottom_title4"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/_top_guide"
+            app:layout_constraintStart_toEndOf="@id/_bottom_title3"
+            android:layout_marginTop="8dp"
+            android:alpha="1"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="L" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_bottom_title5"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/_top_guide"
+            app:layout_constraintStart_toEndOf="@id/_bottom_title4"
+            android:alpha="1"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:text="D" />
+        <!--
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/_logo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/vector_share"
+                android:alpha="1"
+                app:layout_constraintStart_toEndOf="@id/_bottom_title5"
+                app:layout_constraintBottom_toTopOf="@id/_bottom_title5"/>-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_title_end"
+            style="@style/NotoBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:alpha="1"
+            android:layout_marginBottom="30dp"
+            android:text="@string/developer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
